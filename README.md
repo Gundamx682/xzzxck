@@ -13,11 +13,7 @@
 
 ## 安装方法
 
-### 一键安装
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/Gundamx682/xzzxck/main/install.sh | sudo bash
-```
 
 ### 手动安装
 
