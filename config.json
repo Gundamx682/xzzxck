@@ -1,0 +1,23 @@
+{
+  "repositories": [
+    {
+      "name": "netamade-releases",
+      "owner": "z0brk",
+      "enabled": true,
+      "check_interval": 600,
+      "download_dir": "/var/www/apk-downloads"
+    }
+  ],
+  "server": {
+    "port": 8080,
+    "bind_address": "0.0.0.0"
+  },
+  "download": {
+    "max_concurrent": 3,
+    "retry_count": 3,
+    "timeout": 300
+  },
+  "api": {
+    "rate_limit_delay": 2
+  }
+}

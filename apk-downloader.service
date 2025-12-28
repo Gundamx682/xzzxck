@@ -1,0 +1,26 @@
+[Unit]
+Description=APK Auto Downloader Service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/apk-downloader
+ExecStart=/opt/apk-downloader/apk-downloader.sh
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=apk-downloader
+
+# 安全设置
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/www/apk-downloads /var/log /var/run
+
+[Install]
+WantedBy=multi-user.target

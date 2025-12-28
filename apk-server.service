@@ -1,0 +1,26 @@
+[Unit]
+Description=APK Download HTTP Server
+After=network.target apk-downloader.service
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/apk-downloader
+ExecStart=/usr/bin/python3 /opt/apk-downloader/apk-server.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=apk-server
+
+# 安全设置
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/www/apk-downloads /var/log
+
+[Install]
+WantedBy=multi-user.target
